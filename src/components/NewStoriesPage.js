@@ -83,21 +83,6 @@ class NewStoriesPage extends React.Component {
               </ul>
             </nav>
           </div>
-
-
-
-
-
-
-
-          {/* <div>
-          <button disabled={currentPage === 1} onClick={() => this.handlePageChange(currentPage - 1)}>
-            Previous
-          </button>
-          <button disabled={currentPage === totalPages} onClick={() => this.handlePageChange(currentPage + 1)}>
-            Next
-          </button>
-        </div> */}
 </div>
 
       </div>

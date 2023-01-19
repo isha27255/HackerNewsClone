@@ -64,16 +64,10 @@ class SearchPage extends React.Component {
       <div>
         <DrawerAppBar></DrawerAppBar>
       <div class="min-h-screen bg-gray-100">
-      {/* <DrawerAppBar></DrawerAppBar> */}
-     
-        {/* <div class="min-h-screen bg-gray-100 flex justify-center items-center"> */}
-
         <br></br>
         <br></br>
         <br></br>
         <br></br>
-        
-
 	<div class="container mx-auto bg-indigo-500 rounded-lg p-14">
 		<form onSubmit={this.handleSearch}>
 			<h1 class="text-center font-bold text-white text-4xl">Search Hacker News !</h1>
@@ -146,17 +140,6 @@ class SearchPage extends React.Component {
           </div>
   }
 </div>
-{/* <div>
-          <button disabled={currentPage === 1} onClick={() => this.handlePageChange(currentPage - 1)}>
-            Previous
-          </button>
-          <button disabled={currentPage === totalPages} onClick={() => this.handlePageChange(currentPage + 1)}>
-            Next
-          </button>
-        </div> */}
-
-
-        
       </div>
       </div>
     );
