@@ -42,7 +42,7 @@ class NewStoriesPage extends React.Component {
         <div class="container mx-auto p-20">
     {currentItems.map(story => (
         <div key={story.objectID} class="bg-white p-6 rounded-lg shadow-lg border-t-2 border-solid border-indigo-600 p-8 mt-6">
-        <a class="text-2xl font-bold mb-2 text-gray-800" href={story.url}>{story.title}</a>
+        <a class="text-2xl font-bold mb-2 text-gray-800" href={story.url}>{story.title} ( {story.url!=null? story.url.split("/")[2] : 'none' } )</a>
         <p class="text-gray-500">{story.points} {story.points>1 ? 'points' : 'point'} by {story.author}  | hide | past | discuss </p>
 
       </div>

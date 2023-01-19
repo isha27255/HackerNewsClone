@@ -22,12 +22,22 @@ class SearchPage extends React.Component {
     const filter = event.target.filter.value;
     console.log(searchQuery);
     console.log(filter);
-
-    var config = {
-      method: 'get',
-      url: `https://hn.algolia.com/api/v1/search?query=${searchQuery}&tags=${filter}`,
-      headers: { }
-    };
+    if(filter==="Popularity")
+    {
+      var config = {
+        method: 'get',
+        url: `https://hn.algolia.com/api/v1/search?query=${searchQuery}&tags=story`,
+        headers: { }
+      };
+    }
+    if(filter==="Date")
+    {
+      var config = {
+        method: 'get',
+        url: `https://hn.algolia.com/api/v1/search_by_date?query=${searchQuery}&tags=story`,
+        headers: { }
+      };
+    }
     
     axios(config)
     .then((response)=> {
@@ -73,23 +83,15 @@ class SearchPage extends React.Component {
 					<input class="text-base text-gray-400 flex-grow outline-none px-2 " type="text" name="search" placeholder="Search News" />
 					<div class="ms:flex items-center px-2 rounded-lg space-x-4 mx-auto ">
 						<span class="text-base text-gray-800 outline-none">search</span>
-            <select id="Com" name="filter" class="text-base text-gray-800 outline-none border-2 px-4 py-2 rounded-lg">
+            <select id="Com" class="text-base text-gray-800 outline-none border-2 px-4 py-2 rounded-lg">
             <option value="story">All</option>
             <option value="story" selected>Stories</option>
             <option value="Comments">Comments</option>
           </select>
           <span class="text-base text-gray-800 outline-none">by</span>
-          <select id="Com" class="text-base text-gray-800 outline-none border-2 px-4 py-2 rounded-lg">
+          <select id="Com" name="filter" class="text-base text-gray-800 outline-none border-2 px-4 py-2 rounded-lg">
             <option value="Popularity" selected>Popularity</option>
             <option value="Date">Date</option>
-          </select>
-          <span class="text-base text-gray-800 outline-none">for</span>
-          <select id="Com" class="text-base text-gray-800 outline-none border-2 px-4 py-2 rounded-lg">
-            <option value="All" selected>All Time</option>
-            <option value="24h">Last 24h</option>
-            <option value="Week">Past Week</option>
-            <option value="Month">Past Month</option>
-            <option value="Year">Past Year</option>
           </select>
 						<button type="submit" class="bg-indigo-500 text-white text-base rounded-lg px-4 py-2 font-thin">Search</button>
 					</div>
@@ -101,8 +103,8 @@ class SearchPage extends React.Component {
 <div class="container mx-auto p-20">
     {currentItems.map(result => (
         <div key={result.objectID} class="bg-white p-6 rounded-lg shadow-lg border-t-2 border-solid border-indigo-600 p-8 mt-6">
-        <a class="text-2xl font-bold mb-2 text-gray-800" href={result.url}>{result.title}</a>
-        <p class="text-gray-500">{result.points} {result.points>1 ? 'points' : 'point'} | {result.author}  | 10 years ago | <QuestionAnswerIcon></QuestionAnswerIcon> {result.num_comments} {result.num_comments>1 ? 'comments' : 'comment'}</p>
+        <a class="text-2xl font-bold mb-2 text-gray-800" href={result.url}>{result.title} ( {result.url!=null? result.url.split("/")[2] : 'none' } )</a>
+        <p class="text-gray-500">{result.points} {result.points>1 ? 'points' : 'point'} | {result.author}  | {2023-parseInt(result.created_at.split("-")[0])} years ago | <QuestionAnswerIcon></QuestionAnswerIcon> {result.num_comments} {result.num_comments>1 ? 'comments' : 'comment'}</p>
 
       </div>
           ))}
