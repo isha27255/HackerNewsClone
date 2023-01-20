@@ -59,46 +59,46 @@ class SearchPage extends React.Component {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const currentItems = results.slice(startIndex, endIndex);
-
+    
     return (
       <div>
         <DrawerAppBar></DrawerAppBar>
-      <div class="min-h-screen bg-gray-100">
+      <div className="min-h-screen bg-gray-100">
         <br></br>
         <br></br>
         <br></br>
         <br></br>
-	<div class="container mx-auto bg-indigo-500 rounded-lg p-14">
+	<div className="container mx-auto bg-indigo-500 rounded-lg p-14">
 		<form onSubmit={this.handleSearch}>
-			<h1 class="text-center font-bold text-white text-4xl">Search Hacker News !</h1>
+			<h1 className="text-center font-bold text-white text-4xl">Search Hacker News !</h1>
 				<br></br>
         <br></br>
-        <div class="sm:flex items-center bg-white rounded-lg overflow-hidden px-2 py-1 justify-between">
-					<input class="text-base text-gray-400 flex-grow outline-none px-2 " type="text" name="search" placeholder="Search News" />
-					<div class="ms:flex items-center px-2 rounded-lg space-x-4 mx-auto ">
-						<span class="text-base text-gray-800 outline-none">search</span>
-            <select id="Com" class="text-base text-gray-800 outline-none border-2 px-4 py-2 rounded-lg">
+        <div className="sm:flex items-center bg-white rounded-lg overflow-hidden px-2 py-1 justify-between">
+					<input className="text-base text-gray-400 flex-grow outline-none px-2 " type="text" name="search" placeholder="Search News" />
+					<div className="ms:flex items-center px-2 rounded-lg space-x-4 mx-auto ">
+						<span className="text-base text-gray-800 outline-none">search</span>
+            <select id="Com" className="text-base text-gray-800 outline-none border-2 px-4 py-2 rounded-lg">
             <option value="story">All</option>
             <option value="story" selected>Stories</option>
-            <option value="Comments">Comments</option>
+            <option value="comments">Comments</option>
           </select>
-          <span class="text-base text-gray-800 outline-none">by</span>
-          <select id="Com" name="filter" class="text-base text-gray-800 outline-none border-2 px-4 py-2 rounded-lg">
+          <span className="text-base text-gray-800 outline-none">by</span>
+          <select id="Com" name="filter" className="text-base text-gray-800 outline-none border-2 px-4 py-2 rounded-lg">
             <option value="Popularity" selected>Popularity</option>
             <option value="Date">Date</option>
           </select>
-						<button type="submit" class="bg-indigo-500 text-white text-base rounded-lg px-4 py-2 font-thin">Search</button>
+						<button type="submit" className="bg-indigo-500 text-white text-base rounded-lg px-4 py-2 font-thin">Search</button>
 					</div>
 				</div>
 		</form>
     
 	</div>
 {/* </div> */}
-<div class="container mx-auto p-20">
+<div className="container mx-auto p-20">
     {currentItems.map(result => (
         <div key={result.objectID} class="bg-white p-6 rounded-lg shadow-lg border-t-2 border-solid border-indigo-600 p-8 mt-6">
-        <a class="text-2xl font-bold mb-2 text-gray-800" href={result.url}>{result.title} ( {result.url!=null? result.url.split("/")[2] : 'none' } )</a>
-        <p class="text-gray-500">{result.points} {result.points>1 ? 'points' : 'point'} | {result.author}  | {2023-parseInt(result.created_at.split("-")[0])} years ago | <QuestionAnswerIcon></QuestionAnswerIcon> {result.num_comments} {result.num_comments>1 ? 'comments' : 'comment'}</p>
+        <a className="text-2xl font-bold mb-2 text-gray-800" href={result.url}>{result.title} ( {result.url!=null? result.url.split("/")[2] : 'none' } )</a>
+        <p className="text-gray-500">{result.points} {result.points>1 ? 'points' : 'point'} | {result.author}  | {2023-parseInt(result.created_at.split("-")[0])} years ago | <QuestionAnswerIcon></QuestionAnswerIcon> {result.num_comments} {result.num_comments>1 ? 'comments' : 'comment'}</p>
 
       </div>
           ))}

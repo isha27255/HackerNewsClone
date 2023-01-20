@@ -64,7 +64,7 @@ class NewStoriesPage extends React.Component {
               </li>
               <li className="-ml-px">
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNumber => (
-                  <button key={pageNumber} classNameName={`relative inline-flex items-center px-4 py-2 mr-3 border border-gray-300 bg-white text-sm leading-5 font-medium rounded-full text-gray-700 ${currentPage === pageNumber ? 'bg-indigo-500 text-white' : 'hover:bg-indigo-200 hover:text-indigo-700 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500'}`} onClick={() => this.handlePageChange(pageNumber)}>
+                  <button key={pageNumber} className={`relative inline-flex items-center px-4 py-2 mr-3 border border-gray-300 bg-white text-sm leading-5 font-medium rounded-full text-gray-700 ${currentPage === pageNumber ? 'bg-indigo-500 text-white' : 'hover:bg-indigo-200 hover:text-indigo-700 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500'}`} onClick={() => this.handlePageChange(pageNumber)}>
                       {pageNumber}
                     </button>
                   ))}
